@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class ScanTest
+public class ScannerTest
 {
     public boolean complete = false;
     public static void main (String [] args)
