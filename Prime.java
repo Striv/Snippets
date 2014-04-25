@@ -1,23 +1,34 @@
+import java.lang.Math;
+import java.lang.Exception.*;
+
 public class Prime
 {
 	public static void main(String [] args)
 	{
-		int max = Integer.parseInt(args[0]);
-		boolean prime;
-		boolean primer;
-		for(int a = 2; a <= max; a++)
+		if(args.length > 0)
 		{
-			prime = true;
-			for(int b = 2; b <= a / 2; b++)
+			for(String s : args)
 			{
-				if (a%b == 0)
-					prime = false;
-			}
-			if (prime)
-			{
-				System.out.print(a + ", ");
+				try
+				{
+					int n = Integer.parseInt(s);
+					System.out.println(n + ", " + isPrime(n));
+				}
+				catch(NumberFormatException e)
+				{
+					System.out.println(s + " is not a number.");
+				}
 			}
 		}
-		System.out.println();
+		else
+			System.out.println("Re-run program with integers as arguments.");	
+	}
+
+	public static boolean isPrime(int n)
+	{
+		for(int a = 2; a < Math.sqrt(n); a++)
+			if(n % a == 0)
+				return false;
+		return true;
 	}
 }
